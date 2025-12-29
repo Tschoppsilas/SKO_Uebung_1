@@ -1,0 +1,15 @@
+name: Lint Python
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: SKO_Uebung_1.yml
+          activate-environment: project-env
+      - run: black --check src/
+      - run: flake8 src/
