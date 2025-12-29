@@ -171,19 +171,19 @@ class Data1Pipeline:
             df["Personenwagen"] + df["Personenwagen mit anhänger"]
         )
         df["lieferwagen_total"] = (
-            df["Lieferwagen"] +
-            df["Lieferwagen mit anhänger"] +
-            df["Lieferwagen mit auflieger"]
+            df["Lieferwagen"]
+            + df["Lieferwagen mit anhänger"]
+            + df["Lieferwagen mit auflieger"]
         )
         df["lkw_total"] = (
             df["Lastwagen"] + df["Lastwagen mit anhänger"] + df["sattelzug"]
         )
         df["motorisiert_total"] = (
-            df["Motorrad"] +
-            df["bus"] +
-            df["pkw_total"] +
-            df["lieferwagen_total"] +
-            df["lkw_total"]
+            df["Motorrad"]
+            + df["bus"]
+            + df["pkw_total"]
+            + df["lieferwagen_total"]
+            + df["lkw_total"]
         )
         return df
 
