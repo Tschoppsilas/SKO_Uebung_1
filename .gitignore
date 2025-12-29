@@ -1,2 +1,5 @@
 *.csv
-.idea/
+*.idea/
+*.geojson
+*.paruet
+Data/
