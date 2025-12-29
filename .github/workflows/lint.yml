@@ -10,6 +10,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environment.yml
-          activate-environment: project-env
+          activate-environment: SKO_Uebung_1
       - run: black --check src/
       - run: flake8 src/
