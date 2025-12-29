@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: actions/setup-python@v4
         with:
-          environment-file: environment.yml
-          activate-environment: SKO_Uebung_1
+          python-version: '3.13'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
       - run: black --check src/
       - run: flake8 src/
