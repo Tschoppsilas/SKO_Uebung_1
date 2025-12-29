@@ -4,36 +4,47 @@ on:
   push:
     branches:
       - develop
-      - feature/*
+      - 'feature/**'
 
 jobs:
   dvc:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Für Git-History
+          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
-      - name: Install dependencies
-        run: |
-          pip install dvc dvc-gdrive  # oder dvc-s3, je nach Remote
-          pip install -r requirements.txt
+      - name: Install DVC
+        run: pip install dvc dvc-onedrive
 
       - name: Configure Git
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Setup DVC Remote
+      - name: Setup DVC Remote (OneDrive)
+        env:
+          # Diese Secrets musst du in GitHub anlegen
+          OD_CLIENT_ID: ${{ secrets.ONEDRIVE_CLIENT_ID }}
+          OD_CLIENT_SECRET: ${{ secrets.ONEDRIVE_CLIENT_SECRET }}
+          OD_REFRESH_TOKEN: ${{ secrets.ONEDRIVE_REFRESH_TOKEN }}
         run: |
-          # DVC Remote konfigurieren (anpassen an deinen Storage)
-          # z.B. für Google Drive:
-          # dvc remote modify origin --local gdrive_use_service_account true
-          echo "DVC remote setup needed"
+          # Remote für OneDrive setzen
+          dvc remote add -d storage onedrive://dvc-data --force
+          # Authentifizierung konfigurieren
+          dvc remote modify --local storage client_id "$OD_CLIENT_ID"
+          dvc remote modify --local storage client_secret "$OD_CLIENT_SECRET"
+          dvc remote modify --local storage refresh_token "$OD_REFRESH_TOKEN"
 
       - name: Run DVC auto-add
         run: bash scripts/dvc_auto_add.sh
+
+      - name: Push to OneDrive and Git
+        run: |
+          dvc push
+          git push origin HEAD:${{ github.ref_name }}

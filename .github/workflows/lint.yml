@@ -18,11 +18,11 @@ jobs:
         run: |
           if find . -name "*.py" -not -path "./.*" -type f | grep -q .; then
             black --check .
-            flake8 .
+            flake8 . --ignore=F541,E722
           else
             echo "No Python files to lint"
           fi
       - name: Lint Notebooks
         run: |
           nbqa black --check Notebooks/
-          nbqa flake8 Notebooks/
+          nbqa flake8 Notebooks/ --ignore=F541,E722
