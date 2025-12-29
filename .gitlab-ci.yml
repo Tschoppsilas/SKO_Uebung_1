@@ -1,0 +1,11 @@
+stages:
+  - lint
+
+lint:
+  image: continuumio/miniconda3
+  stage: lint
+  script:
+    - conda env create -f environment.yml
+    - source activate project-env
+    - black --check src/
+    - flake8 src/
