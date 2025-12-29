@@ -1,0 +1,24 @@
+name: DVC Auto-Check
+
+on:
+  push:
+    branches:
+      - develop
+      - feature/*
+
+jobs:
+  dvc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          pip install dvc
+          pip install -r requirements.txt
+
+      - run: bash scripts/dvc_auto_add.sh
