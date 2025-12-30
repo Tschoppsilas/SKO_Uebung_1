@@ -1,0 +1,10 @@
+2025-12-29 15:01:12,440 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:01:12,448 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:01:12,765 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:01:12,780 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:01:50,038 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
+2025-12-29 15:03:54,500 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
+2025-12-29 15:04:55,106 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
+2025-12-29 15:09:27,512 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
+2025-12-29 15:12:56,197 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
+2025-12-29 15:14:08,679 | INFO | Data1 | Lade Data1: data\Data_1_neu.csv
