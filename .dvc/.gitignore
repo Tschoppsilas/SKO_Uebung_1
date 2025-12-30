@@ -1,5 +1,5 @@
 /config.local
-/tmp
-/cache
+tmp/
+cache/
 # Ignore DVC internal files
 .dvc/tmp/
