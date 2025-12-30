@@ -1,0 +1,68 @@
+2025-12-29 15:15:22,188 | INFO | Data1 | Lade Data1: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_1_neu.csv
+2025-12-29 15:15:24,665 | INFO | Data1 | Setze Datentypen für Data1
+2025-12-29 15:15:24,684 | INFO | Data1 | Kodierung JA/Nein → 1/0
+2025-12-29 15:15:25,373 | INFO | Data1 | Starte DATA1 PIPELINE
+2025-12-29 15:15:25,375 | INFO | Data1 | Lade Data1: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_1_neu.csv
+2025-12-29 15:15:27,754 | INFO | Data1 | Setze Datentypen für Data1
+2025-12-29 15:15:27,774 | INFO | Data1 | Kodierung JA/Nein → 1/0
+2025-12-29 15:15:27,779 | INFO | Data1 | Konvertiere Datum/Zeit
+2025-12-29 15:15:27,848 | INFO | Data1 | Benenne Spalten um
+2025-12-29 15:15:27,866 | INFO | Data1 | Übersetze englische Wochentage → deutsch
+2025-12-29 15:15:27,868 | INFO | Data1 | Leite Zeitvariablen ab
+2025-12-29 15:15:27,878 | INFO | Data1 | Aggregiere Fahrzeugkategorien
+2025-12-29 15:15:27,882 | INFO | Data1 | Filtere Data1 auf Jahr 2024
+2025-12-29 15:15:27,902 | INFO | Data1 | Entferne nicht benötigte Spalten
+2025-12-29 15:15:27,910 | INFO | Data1 | Data1 Pipeline abgeschlossen
+2025-12-29 15:15:27,911 | INFO | Data2 | Starte DATA2 PIPELINE
+2025-12-29 15:15:27,913 | INFO | Data2 | Lade Data2: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_2.parquet
+2025-12-29 15:15:27,960 | INFO | Data2 | Setze Datentypen für Data2
+2025-12-29 15:15:27,966 | INFO | Data2 | Entferne Spalte messstationid
+2025-12-29 15:15:27,968 | INFO | Data2 | Erstelle Zeitvariablen aus startzeit
+2025-12-29 15:15:27,991 | INFO | Data2 | Filtere Data2 auf Jahr 2024
+2025-12-29 15:15:27,994 | INFO | Data2 | Filtere Data2 auf Gemeinde 'Weinfelden'
+2025-12-29 15:15:28,000 | INFO | Data2 | Data2 Pipeline abgeschlossen
+2025-12-29 15:15:28,001 | INFO | Merge | Starte MERGE PIPELINE
+2025-12-29 15:15:28,002 | INFO | Merge | Harmonisiere Datums- und Zeitformate für Merge
+2025-12-29 15:15:28,367 | INFO | Merge | Merging Data1 + Data2
+2025-12-29 15:15:28,385 | INFO | Merge | Entferne ungenutzte Spalten nach Merge
+2025-12-29 15:15:28,389 | INFO | Merge | Erstelle gefilterte DataFrames pro Strasse
+2025-12-29 15:15:28,393 | INFO | Merge | K80: 8924 Zeilen
+2025-12-29 15:15:28,396 | INFO | Merge | K75: 4462 Zeilen
+2025-12-29 15:15:28,399 | INFO | Merge | Gemeindestrasse: 4462 Zeilen
+2025-12-29 15:15:28,400 | INFO | Merge | Merge Pipeline abgeschlossen
+2025-12-29 15:38:09,038 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:38:09,045 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:38:09,298 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:38:09,311 | INFO | matplotlib.category | Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-29 15:38:38,596 | INFO | Data1 | Lade Data1: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_1_neu.csv
+2025-12-29 15:38:41,088 | INFO | Data1 | Setze Datentypen für Data1
+2025-12-29 15:38:41,108 | INFO | Data1 | Kodierung JA/Nein → 1/0
+2025-12-29 15:38:41,129 | INFO | Data1 | Starte DATA1 PIPELINE
+2025-12-29 15:38:41,130 | INFO | Data1 | Lade Data1: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_1_neu.csv
+2025-12-29 15:38:43,607 | INFO | Data1 | Setze Datentypen für Data1
+2025-12-29 15:38:43,632 | INFO | Data1 | Kodierung JA/Nein → 1/0
+2025-12-29 15:38:43,636 | INFO | Data1 | Konvertiere Datum/Zeit
+2025-12-29 15:38:43,696 | INFO | Data1 | Benenne Spalten um
+2025-12-29 15:38:43,720 | INFO | Data1 | Übersetze englische Wochentage → deutsch
+2025-12-29 15:38:43,722 | INFO | Data1 | Leite Zeitvariablen ab
+2025-12-29 15:38:43,734 | INFO | Data1 | Aggregiere Fahrzeugkategorien
+2025-12-29 15:38:43,739 | INFO | Data1 | Filtere Data1 auf Jahr 2024
+2025-12-29 15:38:43,759 | INFO | Data1 | Entferne nicht benötigte Spalten
+2025-12-29 15:38:43,767 | INFO | Data1 | Data1 Pipeline abgeschlossen
+2025-12-29 15:38:43,775 | INFO | Data2 | Starte DATA2 PIPELINE
+2025-12-29 15:38:43,776 | INFO | Data2 | Lade Data2: C:\Users\silas\OneDrive\FHNW\05_Semester\SKO\SKO_Uebung_1\Data\Data_2.parquet
+2025-12-29 15:38:43,785 | INFO | Data2 | Setze Datentypen für Data2
+2025-12-29 15:38:43,792 | INFO | Data2 | Entferne Spalte messstationid
+2025-12-29 15:38:43,793 | INFO | Data2 | Erstelle Zeitvariablen aus startzeit
+2025-12-29 15:38:43,816 | INFO | Data2 | Filtere Data2 auf Jahr 2024
+2025-12-29 15:38:43,819 | INFO | Data2 | Filtere Data2 auf Gemeinde 'Weinfelden'
+2025-12-29 15:38:43,824 | INFO | Data2 | Data2 Pipeline abgeschlossen
+2025-12-29 15:38:43,826 | INFO | Merge | Starte MERGE PIPELINE
+2025-12-29 15:38:43,827 | INFO | Merge | Harmonisiere Datums- und Zeitformate für Merge
+2025-12-29 15:38:44,277 | INFO | Merge | Merging Data1 + Data2
+2025-12-29 15:38:44,315 | INFO | Merge | Entferne ungenutzte Spalten nach Merge
+2025-12-29 15:38:44,323 | INFO | Merge | Erstelle gefilterte DataFrames pro Strasse
+2025-12-29 15:38:44,336 | INFO | Merge | K80: 8924 Zeilen
+2025-12-29 15:38:44,342 | INFO | Merge | K75: 4462 Zeilen
+2025-12-29 15:38:44,347 | INFO | Merge | Gemeindestrasse: 4462 Zeilen
+2025-12-29 15:38:44,348 | INFO | Merge | Merge Pipeline abgeschlossen
