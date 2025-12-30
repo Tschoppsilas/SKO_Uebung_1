@@ -3,3 +3,5 @@ tmp/
 cache/
 # Ignore DVC internal files
 .dvc/tmp/
+/tmp
+/cache

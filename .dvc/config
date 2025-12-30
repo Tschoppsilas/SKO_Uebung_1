@@ -1,2 +1,5 @@
 [core]
     autostage = true
+    remote = onedrive
+['remote "onedrive"']
+    url = C:\Users\silas\OneDrive\FHNW\DVC_Remote
