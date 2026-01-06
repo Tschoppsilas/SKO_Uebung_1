@@ -18,11 +18,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pandas pyarrow fastparquet
+        # Hier werden nur die nötigsten Pakete installiert
+        pip install pandas geopandas pytest pyarrow fastparquet
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # Zeigt Fehler an, bricht aber nicht ab
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     - name: Run Unit Tests
-      # Das hier ist das Herzstück: Es sagt Linux, wo dein Code liegt
       env:
+        # Erklärt dem GitHub-Server, wo deine pipeline.py liegt
         PYTHONPATH: ${{ github.workspace }}/Python
       run: |
         pytest tests/
