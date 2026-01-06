@@ -1,6 +1,11 @@
 name: Python Pipeline CI
 
-on: [push, pull_request]
+# 1. TRIGGER: Automatische CI für Feature-Branches, develop und Merge Requests
+on:
+  push:
+    branches: [ "main", "develop", "feature/*" ]
+  pull_request:
+    branches: [ "main", "develop" ]
 
 jobs:
   build:
@@ -18,18 +23,28 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        # Hier werden nur die nötigsten Pakete installiert
-        pip install pandas geopandas pytest pyarrow fastparquet
+        # Nutzt deine Anforderungen aus dem Projekt
+        pip install pandas geopandas pytest pyarrow fastparquet flake8 black
 
-    - name: Lint with flake8
+    # 2. STATISCHE CODE ANALYSE (Linting)
+    - name: Lint with black & flake8
       run: |
-        pip install flake8
-        # Zeigt Fehler an, bricht aber nicht ab
+        # Black prüft das Format, flake8 die Logik-Struktur
+        black --check .
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Run Unit Tests
+    # 3. UNIT TESTS
+    - name: Run Unit Tests with pytest
       env:
-        # Erklärt dem GitHub-Server, wo deine pipeline.py liegt
         PYTHONPATH: ${{ github.workspace }}/Python
       run: |
-        pytest tests/
+        pytest tests/ -v
+
+    # 4. NOTIFICATIONS (Status-Update)
+    # GitHub Actions schickt standardmäßig E-Mails bei Fehlern an dich.
+    # Um es explizit zu machen, nutzen wir einen Step, der am Ende zusammenfasst.
+    - name: Pipeline Status Notification
+      if: always() # Wird immer ausgeführt, egal ob Erfolg oder Fehler
+      run: |
+        echo "Pipeline-Status: ${{ job.status }}"
