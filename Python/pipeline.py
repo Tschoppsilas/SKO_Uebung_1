@@ -272,3 +272,38 @@ class MergePipeline:
             for s in self.cfg.strassen_filter
         }
         return merged, streets
+
+
+# ============================================================
+# DER "BUILD" / EXECUTION TEIL
+# ============================================================
+
+if __name__ == "__main__":
+    """
+    Dieser Block wird nur ausgeführt, wenn man 'python pipeline.py' aufruft.
+    Wenn pytest die Datei importiert, wird dieser Teil ignoriert.
+    """
+    setup_logging()
+    logger = logging.getLogger("Main")
+
+    try:
+        config = Config()
+
+        # 1. Verkehrsdaten verarbeiten
+        p1 = Data1Pipeline(config)
+        df_traffic = p1.run()
+
+        # 2. Luftdaten verarbeiten
+        p2 = Data2Pipeline(config)
+        df_air = p2.run()
+
+        # 3. Mergen
+        p_merge = MergePipeline(config)
+        final_df, street_dfs = p_merge.run(df_traffic, df_air)
+
+        logger.info("Pipeline erfolgreich durchlaufen!")
+        print(f"\nVorschau der Daten:\n{final_df.head()}")
+
+    except Exception as e:
+        logger.error(f"Pipeline fehlgeschlagen: {e}", exc_info=True)
+        sys.exit(1)
