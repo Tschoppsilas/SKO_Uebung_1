@@ -1,4 +1,4 @@
-name: pythin-app.yml
+name: Python Pipeline CI
 
 on: [push, pull_request]
 
@@ -7,15 +7,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
         python-version: "3.12"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pytest pandas pyarrow fastparquet
-    - name: Run Unit Tests with pytest
+
+    - name: Run Unit Tests
+      # Das hier ist das Herzstück: Es sagt Linux, wo dein Code liegt
+      env:
+        PYTHONPATH: ${{ github.workspace }}/Python
       run: |
         pytest tests/
